@@ -42,6 +42,25 @@ run_rq2() {
     python main.py
 }
 
+# Function to choose between RQ1 and RQ2
+main() {
+    # Ask the user to choose an option between RQ1 and RQ2
+    echo
+    echo "Select a Research Question (RQ) to run:"
+    echo "1. Run RQ1"
+    echo "2. Run RQ2"
+    read -p "Enter your choice (1 or 2): " choice
+    echo
+
+    # Run the appropriate Python script based on the user's choice
+    if [ "$choice" = "1" ]; then
+        run_rq1
+    elif [ "$choice" = "2" ]; then
+        run_rq2
+    else
+        echo "Invalid choice. Please run the script again and select either 1 or 2."
+    fi
+}
+
 # Execute RQs
-run_rq1
-run_rq2
+main
